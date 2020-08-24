@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mars_Stuff</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>All About Mars</h1>
+        <br/>
+        <p>{{ mars.nasa_article_title }}</p>
+        <p>{{ mars.first_paragraph }} </p>
+        <br/>
+        <h3>Pictures from NASA</h3>
+        <div class="row">
+            <div class="col-md-5">
+                <img src= {{ mars.featured_jpl_image }} style="height:50%; width:50%"/>
+            </div>
+            <div class="col-md-5">
+                <img src= {{ mars.first_jpl_image }} style="height: 75%; width: 75%"/>
+            </div>
+        </div>
+        <br/>
+        <h4>Some Trivia About Mars</h4>
+        <div class="container">
+            <div class="row">
+                {{ mars.mars_facts_table }}
+            </div>
+        </div>>
+
+        {{ mars.mars_facts_table }}
+        <table border="1" class="dataframe">
+            <thead>
+              <tr style="text-align: right;">
+                <th></th>
+                <th></th>
+              </tr>
+              <tr>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>Equatorial Diameter:</th>
+                <td>6,792 km</td>
+              </tr>
+              <tr>
+                <th>Polar Diameter:</th>
+                <td>6,752 km</td>
+              </tr>
+              <tr>
+                <th>Mass:</th>
+                <td>6.39 × 10^23 kg (0.11 Earths)</td>
+              </tr>
+              <tr>
+                <th>Moons:</th>
+                <td>2 (Phobos &amp; Deimos)</td>
+              </tr>
+              <tr>
+                <th>Orbit Distance:</th>
+                <td>227,943,824 km (1.38 AU)</td>
+              </tr>
+              <tr>
+                <th>Orbit Period:</th>
+                <td>687 days (1.9 years)</td>
+              </tr>
+              <tr>
+                <th>Surface Temperature:</th>
+                <td>-87 to -5 °C</td>
+              </tr>
+              <tr>
+                <th>First Record:</th>
+                <td>2nd millennium BC</td>
+              </tr>
+              <tr>
+                <th>Recorded By:</th>
+                <td>Egyptian astronomers</td>
+              </tr>
+            </tbody>
+        </table>
+        <br/>
+        <h5>The Four Hemispheres</h5>
+        <br/>
+        <div class="row">
+            <div class="col-md-3">
+                <img src= {{ mars.four_hemispheres.Cerebus }} style="height:50%; width:50%"/>
+                <p> {{ mars.four_hemispheres }} </p>
+                <img src= {{ mars.cerebus }} />
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
