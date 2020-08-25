@@ -13,6 +13,7 @@ def scraper():
     # NASA Articles
     nasa_url = 'https://mars.nasa.gov/news/'
     browser.visit(nasa_url)
+    browser.is_element_present_by_css("ul.item_list li.slide", wait_time=1)
     html = browser.html
     soupy = bs(html, 'html.parser')
     stories = soupy.find(class_='item_list')
@@ -78,5 +79,6 @@ def scraper():
     for x in range(0, len(image_links)):   
         hemisphere_image_dictionary.update( {hemisphere_keys[x]: image_links[x]})
     mars_data['four_hemispheres'] = hemisphere_image_dictionary
+    browser.quit()
 
     return mars_data
