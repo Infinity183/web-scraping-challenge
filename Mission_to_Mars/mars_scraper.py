@@ -11,18 +11,17 @@ def scraper():
     mars_data = {}
 
     # NASA Articles
-    nasa_url = 'https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest'
+    nasa_url = 'https://mars.nasa.gov/news/'
     browser.visit(nasa_url)
     html = browser.html
     soupy = bs(html, 'html.parser')
-    story = soupy.find(class_='list_text')
-    content_title = story.find(class_='content_title')
+    stories = soupy.find(class_='item_list')
+    content_title = stories.find(class_='content_title')
     link = content_title.find('a')['href']
     mars_data['nasa_article_title'] = content_title.find('a').text
 
     basic_url = 'https://mars.nasa.gov'
     article_url = basic_url + link
-#    mars_data['nasa_article_title'] = article_url
     browser.visit(article_url)
     html_another = browser.html
     soupy_another = bs(html_another, 'html.parser')
