@@ -18,10 +18,11 @@ def scraper():
     story = soupy.find(class_='list_text')
     content_title = story.find(class_='content_title')
     link = content_title.find('a')['href']
+    mars_data['nasa_article_title'] = content_title.find('a').text
 
     basic_url = 'https://mars.nasa.gov'
     article_url = basic_url + link
-    mars_data['nasa_article_title'] = article_url
+#    mars_data['nasa_article_title'] = article_url
     browser.visit(article_url)
     html_another = browser.html
     soupy_another = bs(html_another, 'html.parser')
@@ -73,14 +74,10 @@ def scraper():
         list_item = soupy_hemi.find('li')
         destination = list_item.find('a')
         image_links.append(destination['href'])
-    hemisphere_keys = ['Cerebus', 'Sciaparelli', 'Syrtis Major', 'Valles Marineris']
-    hemisphere_image_dicts = []
-    for x in range(0, len(image_links)):
-        hemisphere_image_dicts.append({hemisphere_keys[x]: image_links[x]})
-    mars_data['four_hemispheres'] = hemisphere_image_dicts
-    mars_data['cerebus'] = hemisphere_image_dicts[0]
-    mars_data['sciaparelli'] = hemisphere_image_dicts[1]
-    mars_data['sytris_major'] = hemisphere_image_dicts[2]
-    mars_data['valles_marineris'] = hemisphere_image_dicts[3]
+    hemisphere_keys = ['cerebus', 'sciaparelli', 'syrtis_major', 'valles_marineris']
+    hemisphere_image_dictionary = {}
+    for x in range(0, len(image_links)):   
+        hemisphere_image_dictionary.update( {hemisphere_keys[x]: image_links[x]})
+    mars_data['four_hemispheres'] = hemisphere_image_dictionary
 
     return mars_data

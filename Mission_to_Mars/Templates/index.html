@@ -9,93 +9,163 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
-<body>
-    <div class="container">
-        <h1>All About Mars</h1>
-        <br/>
-        <p>{{ mars.nasa_article_title }}</p>
-        <p>{{ mars.first_paragraph }} </p>
-        <br/>
-        <h3>Pictures from NASA</h3>
-        <div class="row">
-            <div class="col-md-5">
-                <img src= {{ mars.featured_jpl_image }} style="height:50%; width:50%"/>
-            </div>
-            <div class="col-md-5">
-                <img src= {{ mars.first_jpl_image }} style="height: 75%; width: 75%"/>
-            </div>
-        </div>
-        <br/>
-        <h4>Some Trivia About Mars</h4>
-        <div class="container">
-            <div class="row">
-                {{ mars.mars_facts_table }}
-            </div>
-        </div>>
+<body style="background-color:rgb(110, 3, 17)">
 
-        {{ mars.mars_facts_table }}
-        <table border="1" class="dataframe">
-            <thead>
-              <tr style="text-align: right;">
-                <th></th>
-                <th></th>
-              </tr>
-              <tr>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>Equatorial Diameter:</th>
-                <td>6,792 km</td>
-              </tr>
-              <tr>
-                <th>Polar Diameter:</th>
-                <td>6,752 km</td>
-              </tr>
-              <tr>
-                <th>Mass:</th>
-                <td>6.39 × 10^23 kg (0.11 Earths)</td>
-              </tr>
-              <tr>
-                <th>Moons:</th>
-                <td>2 (Phobos &amp; Deimos)</td>
-              </tr>
-              <tr>
-                <th>Orbit Distance:</th>
-                <td>227,943,824 km (1.38 AU)</td>
-              </tr>
-              <tr>
-                <th>Orbit Period:</th>
-                <td>687 days (1.9 years)</td>
-              </tr>
-              <tr>
-                <th>Surface Temperature:</th>
-                <td>-87 to -5 °C</td>
-              </tr>
-              <tr>
-                <th>First Record:</th>
-                <td>2nd millennium BC</td>
-              </tr>
-              <tr>
-                <th>Recorded By:</th>
-                <td>Egyptian astronomers</td>
-              </tr>
-            </tbody>
-        </table>
-        <br/>
-        <h5>The Four Hemispheres</h5>
-        <br/>
-        <div class="row">
-            <div class="col-md-3">
-                <img src= {{ mars.four_hemispheres.Cerebus }} style="height:50%; width:50%"/>
-                <p> {{ mars.four_hemispheres }} </p>
-                <img src= {{ mars.cerebus }} />
-            </div>
+    <br/>
+    <br/>
+    <div class="container">
+        <div class="jumbotron" style="background-color:rgb(255, 220, 225)">
+            <a
+            class="btn btn-primary btn-lg"
+            href="/scraper"
+            role="button"
+            style="background-color: rgb(145, 0, 19); align-self: center;">Wanna Scrape Again?</a>
         </div>
     </div>
 
+
+        <h1 
+        style="background-color:rgb(255, 196, 32);
+        color:rgb(145, 0, 19);
+        text-align:center;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+        All About Mars
+        </h1>
+        <br/>
+        <div class="container">
+            <h3 
+            style="color:rgb(255, 196, 32);
+            text-align:center;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">{{ mars.nasa_article_title }}</h3>
+            <p 
+            style="color:rgb(255, 196, 32);
+            text-align:center;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">{{ mars.first_paragraph }} </p>
+        </div>
+        <br/>
+        <h1 
+        style="background-color:rgb(255, 196, 32);
+        color:rgb(145, 0, 19);
+        text-align:center;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Pictures from NASA</h1>
+        
+        <div class="container">
+            <div class="col-md-6">           
+                <div class="row header">
+                    <h2
+                    style="color:rgb(255, 196, 32);
+                    text-align:center;
+                    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                    Featured JPL Image
+                    </h2>
+                </div>
+                <div class="row" style="text-align:center">
+                    <img src= {{ mars.featured_jpl_image }} style="height:75%; width:75%; align-items: center;"/>
+                </div>
+            </div>
+            <div class="col-md-6">           
+                <div class="row header">
+                    <h2
+                    style="color:rgb(255, 196, 32);
+                    text-align:center;
+                    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                    Newest JPL Image
+                    </h2>
+                </div>
+                <div class="row" style="text-align:center">
+                    <img src= {{ mars.first_jpl_image }} style="height:75%; width:75%; align-items: center;"/>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <h1 
+        style="background-color:rgb(255, 196, 32);
+        color:rgb(145, 0, 19);
+        text-align:center;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Some Trivia About Mars</h1>
+        <div class="container"
+        style="background-color:rgb(110, 3, 17);
+        color:rgb(255, 196, 32);
+        text-align:center;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+            <div class="row" style="text-align:center">
+                <div class="col-md-12" style="text-align:center">
+                    {{ mars.mars_facts_table | safe }}
+                </div>
+            </div>
+        </div>>
+
+        <br/>
+        <h1 
+        style="background-color:rgb(255, 196, 32);
+        color:rgb(145, 0, 19);
+        text-align:center;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">The Four Hemispheres</h1>
+        <br/>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row header">
+                        <h2
+                        style="color:rgb(255, 196, 32);
+                        text-align:center;
+                        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                        Cerebus
+                        </h2>
+                    </div>
+                    <div class="row" style="text-align:center">
+                        <img src= {{ mars.four_hemispheres.cerebus }} style="height:75%; width:75%; align-items: center;"/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row header">
+                        <h2
+                        style="color:rgb(255, 196, 32);
+                        text-align:center;
+                        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                        Sciaparelli
+                        </h2>
+                    </div>
+                    <div class="row" style="text-align:center">
+                        <img src= {{ mars.four_hemispheres.sciaparelli }} style="height:75%; width:75%; align-items: center;"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row header">
+                        <h2
+                        style="color:rgb(255, 196, 32);
+                        text-align:center;
+                        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                        Syrtis Major
+                        </h2>
+                    </div>
+                    <div class="row" style="text-align:center">
+                        <img src= {{ mars.four_hemispheres.syrtis_major }} style="height:75%; width:75%; align-items: center;"/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row header">
+                        <h2
+                        style="color:rgb(255, 196, 32);
+                        text-align:center;
+                        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
+                        Valles Marineris
+                        </h2>
+                    </div>
+                    <div class="row" style="text-align:center">
+                        <img src= {{ mars.four_hemispheres.valles_marineris }} style="height:75%; width:75%; align-items: center;"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 </body>
 
-</html>
